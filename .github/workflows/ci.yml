@@ -1,18 +1,15 @@
 name: CI Pipeline
-
 on: [pull_request]
-
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@4
     - uses: actions/setup-python@v4
-      with:
-        python-version: '3.12'
+     with:
+       python-version: '3.12'
     - run: pip install -r requirements.txt
     - run: cd src && python -m pytest test_class_car.py -v
-  
   lint:
     runs-on: ubuntu-latest
     steps:
